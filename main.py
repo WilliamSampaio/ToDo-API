@@ -1,6 +1,6 @@
 from typing import List
 
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 
 from data import ToDo
 from models import ItemModel, ItemResponseModel
@@ -32,3 +32,14 @@ def add_todo(item: ItemModel):
     Add item.
     """
     return todo.add(dict(item))
+
+
+@app.get('/{item_id}', response_model=ItemResponseModel)
+def get_todo(item_id: int):
+    """
+    Get item.
+    """
+    item = todo.get(item_id)
+    if item is None:
+        raise HTTPException(status_code=404, detail='Item not found')
+    return item

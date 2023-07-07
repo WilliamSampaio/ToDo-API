@@ -35,3 +35,8 @@ class ToDo:
         item['id'] = self.current_id
         self.todo.append(item)
         return item
+
+    def get(self, id: int) -> Dict[str, Any] | None:
+        for item in self.todo:
+            if item['id'] == id:
+                return item

@@ -10,5 +10,6 @@ class ItemModel(BaseModel):
     descricao: Optional[str]
     status: Optional[StatusOption]
 
+
 class ItemResponseModel(ItemModel):
     id: int
