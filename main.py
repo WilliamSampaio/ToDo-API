@@ -1,5 +1,7 @@
-from fastapi import FastAPI
 from typing import List
+
+from fastapi import FastAPI
+
 from data import ToDo
 from models import ItemModel
 

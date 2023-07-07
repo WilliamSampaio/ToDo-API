@@ -1,5 +1,12 @@
-from typing import List, Dict, Any
+from enum import Enum
+from typing import Any, Dict, List
 
+
+class StatusOption(str, Enum):
+    to_do = 'To Do'
+    doing = 'Doing'
+    finished = 'Finished'
+    canceled = 'Canceled'
 
 
 class ToDo:
@@ -8,13 +15,13 @@ class ToDo:
             'id': 1,
             'titulo': 'FastAPI :)',
             'descricao': ':)',
-            'status': 'Aprendendo...',
+            'status': StatusOption.to_do,
         },
         {
             'id': 2,
             'titulo': 'Aprender python :)',
             'descricao': 'estudando!',
-            'status': 'em espera...',
+            'status': StatusOption.doing,
         },
     ]
 

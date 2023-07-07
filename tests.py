@@ -1,7 +1,8 @@
 from typing import List
+
 from starlette.testclient import TestClient
 
-from main import app, ItemModel
+from main import ItemModel, app
 
 client = TestClient(app)
 
