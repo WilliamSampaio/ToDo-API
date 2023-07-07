@@ -9,3 +9,6 @@ class ItemModel(BaseModel):
     titulo: str
     descricao: Optional[str]
     status: Optional[StatusOption]
+
+class ItemResponseModel(ItemModel):
+    id: int

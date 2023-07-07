@@ -3,7 +3,7 @@ from typing import List
 from fastapi import FastAPI
 
 from data import ToDo
-from models import ItemModel
+from models import ItemModel, ItemResponseModel
 
 app = FastAPI()
 
@@ -18,7 +18,7 @@ def hello():
     return {'hello': 'world'}
 
 
-@app.get('/todo', response_model=List[ItemModel])
+@app.get('/todo', response_model=List[ItemResponseModel])
 def list_todo():
     """
     List item.
@@ -26,7 +26,7 @@ def list_todo():
     return todo.list()
 
 
-@app.post('/todo', response_model=ItemModel, status_code=201)
+@app.post('/todo', response_model=ItemResponseModel, status_code=201)
 def add_todo(item: ItemModel):
     """
     Add item.
